@@ -1,21 +1,22 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React, { useState } from 'react'
+import LoginPage from './loginPage/Index'
+import Home from './component/Home'
+import vp from './component/vp'
 
-export default function App() {
+function App() {
+  const [visible, setVisible] = useState(false)
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+    <>
+      {
+        visible ? (
+          <LoginPage setVisible={setVisible} />
+        )
+          : (
+            <Home />
+          )
+      }
+    </>
+  )
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export default App
